@@ -1,0 +1,22 @@
+Analysis of Recursive Financial Forecasting Algorithm
+---------------------------------------------------
+
+1. Time Complexity Analysis:
+   - The time complexity of the recursive algorithm (futureValueRecursive) is O(n), where n is the number of periods.
+   - Each recursive call reduces the problem by 1 period until it reaches 0, resulting in n recursive calls.
+
+2. Optimization Discussion:
+   - For this specific problem, recursion is not inefficient, but for very large n, recursion can lead to stack overflow due to deep call stacks.
+   - An iterative approach is preferred for large n, as it avoids the overhead of recursive calls and stack usage.
+   - Example iterative version:
+     double futureValueIterative(double initialValue, double growthRate, int periods) {
+         double value = initialValue;
+         for (int i = 0; i < periods; i++) {
+             value *= (1 + growthRate);
+         }
+         return value;
+     }
+   - Memoization is not necessary here, as each subproblem is only solved once and there is no overlapping subproblem.
+
+3. Summary:
+   - Recursion is elegant and easy to understand for this problem, but iteration is more efficient for large input sizes. 
