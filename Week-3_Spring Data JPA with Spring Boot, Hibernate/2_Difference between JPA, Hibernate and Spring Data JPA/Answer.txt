@@ -1,0 +1,91 @@
+Hands-on 4: Difference Between JPA, Hibernate, and Spring Data JPA  
+
+Answer:
+
+------
+1. Java Persistence API (JPA)
+
+- JPA is a specification (JSR 338) for persisting, reading, and managing data from Java objects to relational databases.
+- It defines a set of interfaces and annotations for ORM (Object-Relational Mapping).
+- JPA itself does not provide an implementation — it needs a provider like Hibernate.
+- It standardizes how Java applications interact with databases.
+
+------
+2. Hibernate
+
+- Hibernate is a popular ORM tool and the most widely used implementation of the JPA specification.
+- It provides the actual functionality to persist Java objects to the database.
+- Hibernate also offers additional features beyond JPA, such as caching, custom SQL, and performance tuning.
+- Developers using Hibernate directly must manage sessions and transactions manually.
+
+------
+3. Spring Data JPA
+
+- Spring Data JPA is a Spring module that builds on top of JPA and Hibernate.
+- It does not implement JPA itself but provides an abstraction layer to simplify data access.
+- It reduces boilerplate code by automatically generating repository implementations.
+- It integrates seamlessly with Spring’s dependency injection and transaction management.
+
+------
+4. Comparison Table
+
+| Feature                        | JPA   | Hibernate | Spring Data JPA |
+|-------------------------------|-------|-----------|------------------|
+| Type                          | Specification | Implementation | Abstraction over JPA/Hibernate |
+| Provides ORM functionality    | No    | Yes       | Yes              |
+| Reduces boilerplate code      | No    | No        | Yes              |
+| Manages transactions          | No    | Yes       | Yes              |
+| Requires manual session mgmt  | No    | Yes       | No               |
+| Repository abstraction        | No    | No        | Yes              |
+
+------
+5. Code Snippets
+
+Hibernate Example (Manual Session and Transaction Handling):
+
+/* Method to CREATE an employee in the database */
+public Integer addEmployee(Employee employee){
+   Session session = factory.openSession();
+   Transaction tx = null;
+   Integer employeeID = null;
+   
+   try {
+      tx = session.beginTransaction();
+      employeeID = (Integer) session.save(employee); 
+      tx.commit();
+   } catch (HibernateException e) {
+      if (tx != null) tx.rollback();
+      e.printStackTrace(); 
+   } finally {
+      session.close(); 
+   }
+   return employeeID;
+}
+
+Spring Data JPA Example (Simplified Repository-Based Approach):
+
+EmployeeRepository.java
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+}
+
+EmployeeService.java
+@Autowired
+private EmployeeRepository employeeRepository;
+
+@Transactional
+public void addEmployee(Employee employee) {
+    employeeRepository.save(employee);
+}
+
+------
+6. Summary
+
+- JPA defines the standard for ORM in Java.
+- Hibernate is a concrete implementation of JPA and provides the actual persistence logic.
+- Spring Data JPA builds on top of JPA and Hibernate to simplify development by eliminating boilerplate code and providing powerful repository abstractions.
+
+------
+7. References
+
+- https://dzone.com/articles/what-is-the-difference-between-hibernate-and-sprin-1
+- https://www.javaworld.com/article/3379043/what-is-jpa-introduction-to-the-java-persistence-api.html
