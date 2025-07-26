@@ -1,0 +1,31 @@
+/* src/CohortDetails.module.css */
+.box {
+  width: 300px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+dt {
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+dd {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
