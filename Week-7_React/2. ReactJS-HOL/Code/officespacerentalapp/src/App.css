@@ -1,0 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #555;
+  margin-top: 30px;
+}
+
+img {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+ul {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+li {
+  border-radius: 5px;
+  text-align: left;
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+.rent {
+  font-weight: bold;
+}
+
+.rent-red {
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.rent-green {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.featured-section {
+  margin: 30px 0;
+}
+
+.office-list {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+}
