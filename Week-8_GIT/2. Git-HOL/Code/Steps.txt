@@ -1,0 +1,51 @@
+Git Ignore Hands-On Assignment Steps
+====================================
+
+Objective:
+----------
+Demonstrate usage of .gitignore to exclude .log files and log folder from version control.
+
+Step-by-Step Instructions:
+--------------------------
+
+1. Create a “.log” file and a log folder in the working directory:
+   - Create a .log file:
+     echo "This is a log file" > error.log
+   - Create a log directory and another log file inside it:
+     mkdir log
+     echo "Sample log entry" > log/server.log
+
+2. Create or Update the .gitignore File:
+   - Open (or create) the .gitignore file in your repo’s root directory.
+   - Add the following lines:
+     *.log
+     log/
+
+3. Remove Already-Tracked Files from Git (if applicable):
+   - If you accidentally git added these files before creating .gitignore, remove them from version control but keep them locally:
+     git rm --cached error.log
+     git rm --cached -r log/
+
+4. Check Git Status:
+   - Run:
+     git status
+   - You should see .gitignore as a change to be committed, but error.log and the log/ folder will NOT appear under “Changes”, confirming that they are ignored.
+
+5. Stage and Commit the .gitignore File:
+   git add .gitignore
+   git commit -m "Add .gitignore to exclude .log files and log folder"
+
+6. Push the Changes to GitHub:
+   git push origin main
+
+.gitignore Example Content:
+---------------------------
+*.log
+log/
+
+Notes:
+------
+- .gitignore ensures that files matching patterns are not tracked by Git.
+- Only files already tracked before being added to .gitignore need to be removed using git rm --cached.
+
+

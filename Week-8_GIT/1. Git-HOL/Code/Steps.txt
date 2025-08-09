@@ -1,0 +1,68 @@
+Git Hands-On Assignment Steps
+=============================
+
+1. Created a Free GitHub Account
+   - Signed up at https://github.com using a personal email (not work email).
+
+2. Created a New Repository on GitHub
+   - Clicked the ‘+’ icon > “New repository”
+   - Added repository name: git-hol
+   - Did NOT initialize with README
+   - Chose visibility (public/private)
+   - Clicked “Create repository”
+   - Note: Repo URL - https://github.com/rishitsura/git-hol.git
+
+3. Configured Local Repository
+   - Used VS Code’s integrated terminal (PowerShell):
+     cd D:\VSC\Git HOL
+   - Initialized Git repo:
+     git init
+
+4. Linked Local and Remote Repositories
+   - Set correct GitHub repo as origin:
+     git remote add origin https://github.com/rishitsura/git-hol.git
+   - Verified remote URL:
+     git remote -v
+
+5. Created a File and Staged It
+   - Created README.txt (with instructions)
+     echo "Git Hands-On Assignment" > README.txt
+   - Staged for commit:
+     git add README.txt
+
+6. Committed the Changes
+   - Made first commit:
+     git commit -m "Initial commit: add README.txt"
+
+7. Set Main Branch and Pushed to GitHub
+   - Made sure on main branch:
+     git branch -M main
+   - Pushed files:
+     git push origin main
+
+8. Verified Push on GitHub
+   - Checked repository at https://github.com/rishitsura/git-hol.git to see README.txt uploaded.
+
+9. Configured Notepad++ as Default Git Editor
+   - Set Notepad++ as git editor:
+     git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+   - Tested config editor:
+     git config --global --edit
+
+10. Verified Git Bash and Git Installation
+    - Checked version:
+      git --version
+
+11. Launched Notepad++ from Git Bash
+    - Ran from Git Bash:
+      /c/Program\ Files/Notepad++/notepad++.exe
+    - Set shortcut alias (optional):
+      alias npp='/c/Program\ Files/Notepad++/notepad++.exe'
+
+12. Used Common Git Workflow Commands
+    - git status      # Check working status
+    - git add <file>  # Add files to stage
+    - git commit -m "message" # Save changes
+    - git pull origin main    # Pull updates from GitHub
+    - git push origin main    # Push local changes to remote
+

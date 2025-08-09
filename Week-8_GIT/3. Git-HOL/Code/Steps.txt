@@ -1,0 +1,57 @@
+Git Branching and Merging Hands-On Assignment Steps
+===================================================
+
+Objective:
+----------
+- Learn how to create, switch, commit on a new branch, and check its status.
+- Understand basic branching and merging in Git.
+- (Note: For GitLab, "merge requests" are called "pull requests" on GitHub, but the process is similar.)
+
+Step-by-Step Instructions:
+--------------------------
+
+1. Create a New Branch:
+   - Use the following command to create and switch to a new branch named "GitNewBranch":
+     git checkout -b GitNewBranch
+   - Alternatively:
+     git branch GitNewBranch
+     git checkout GitNewBranch
+
+2. Make Changes and Commit them on the New Branch:
+   - Edit an existing file or create a new file, e.g.:
+     echo "Branch demo file" > branch-demo.txt
+   - Stage the changes:
+     git add branch-demo.txt
+   - Commit the changes:
+     git commit -m "Added branch-demo.txt on GitNewBranch branch"
+
+3. Check the Status:
+   - To view current branch and status, run:
+     git status
+
+4. Push the New Branch to GitHub (if on GitHub):
+   git push origin GitNewBranch
+
+5. (Optional) Merge the New Branch Back to Main:
+   - Switch to the main branch:
+     git checkout main
+   - Update your local main branch:
+     git pull origin main
+   - Merge the new branch into main:
+     git merge GitNewBranch
+   - Push the updated main branch:
+     git push origin main
+
+6. (Optional) Create a Pull Request/Merge Request:
+   - On GitHub:
+     - Go to your repo on github.com.
+     - You’ll see a prompt to “Compare & pull request” for the new branch.
+     - Click to open a pull request, review changes, and merge.
+   - On GitLab: (similar process, called “Merge Request”)
+     - Open your project, click “Merge Requests”, and follow prompts.
+
+Notes:
+------
+- Always ensure you are on the correct branch before making edits/commits.
+- Merging brings the changes from one branch into another.
+- In GitHub, "pull request" is the process to merge changes; GitLab uses "merge request".

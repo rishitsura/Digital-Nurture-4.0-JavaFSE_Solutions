@@ -1,0 +1,60 @@
+Resolving a Merge Conflict in Git
+=================================
+
+Objective:
+----------
+Learn and demonstrate resolving a merge conflict during a git merge.
+
+Steps:
+------
+
+1. Ensure you are on the main branch and up to date:
+   git checkout main
+
+2. Create a new branch called conflict_branch:
+   git checkout -b conflict_branch
+
+3. Create or edit a file (e.g., conflict-demo.txt) and commit on conflict_branch:
+   echo "This is content from conflict_branch" > conflict-demo.txt
+   git add conflict-demo.txt
+   git commit -m "Add conflict-demo.txt from conflict_branch"
+
+4. Switch back to the main branch:
+   git checkout main
+
+5. Edit the same file (conflict-demo.txt), using a different line, and commit:
+   echo "This is DIFFERENT content from main" > conflict-demo.txt
+   git add conflict-demo.txt
+   git commit -m "Edit conflict-demo.txt in main branch"
+
+6. Try merging conflict_branch into main (this will cause a conflict):
+   git merge conflict_branch
+
+7. Open conflict-demo.txt in a text editor (VS Code, Notepad++, etc.)
+   - Find the section with conflict markers:
+     <<<<<<< HEAD
+     This is DIFFERENT content from main
+     =======
+     This is content from conflict_branch
+     >>>>>>> conflict_branch
+
+8. Resolve the conflict:
+   - Edit the file to keep the content you want (either, both, or combined)
+   - Remove all the conflict markers (<<<<<<<, =======, >>>>>>>)
+
+   Example resolved content:
+   This is DIFFERENT content from main
+   This is content from conflict_branch
+
+9. Add the resolved file and complete the merge:
+   git add conflict-demo.txt
+   git commit -m "Resolved merge conflict in conflict-demo.txt"
+
+10. (Optional) Push the updated main branch to GitHub:
+    git push origin main
+
+Notes:
+------
+- Merge conflicts occur when the same lines are changed in both branches.
+- Always check for and carefully resolve all conflict markers before doing the final add and commit.
+
